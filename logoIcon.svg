@@ -1,0 +1,106 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="haloGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F4B942" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#F4B942" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A3A5C"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFD76B"/>
+      <stop offset="50%" stop-color="#F4B942"/>
+      <stop offset="100%" stop-color="#C8860A"/>
+    </linearGradient>
+    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD76B" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#F4B942" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0D2B45"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+    <clipPath id="circle">
+      <circle cx="250" cy="250" r="245"/>
+    </clipPath>
+  </defs>
+
+  <!-- Circular background -->
+  <circle cx="250" cy="250" r="248" fill="url(#bgGrad)"/>
+  <circle cx="250" cy="250" r="248" fill="none" stroke="url(#goldGrad)" stroke-width="4"/>
+
+  <!-- Inner gold ring border -->
+  <circle cx="250" cy="250" r="238" fill="none" stroke="#F4B942" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Everything clipped to circle -->
+  <g clip-path="url(#circle)">
+
+    <!-- Subtle glow center -->
+    <ellipse cx="250" cy="240" rx="180" ry="160" fill="url(#haloGlow)"/>
+
+    <!-- HALO ring -->
+    <ellipse cx="250" cy="92" rx="72" ry="18" fill="none" stroke="url(#goldGrad)" stroke-width="6" opacity="0.95"/>
+    <ellipse cx="224" cy="87" rx="18" ry="4" fill="#FFF8E7" opacity="0.4"/>
+
+    <!-- Wings left -->
+    <path d="M 148 210 C 105 172, 38 162, 12 194 C 38 200, 56 213, 82 217 C 56 228, 28 233, 10 252 C 44 246, 80 240, 112 236 C 90 252, 66 266, 56 288 C 88 268, 128 250, 158 240 Z"
+          fill="url(#wingGrad)" opacity="0.9"/>
+    <path d="M 148 210 C 112 196, 68 187, 22 192" fill="none" stroke="#F4B942" stroke-width="1.1" opacity="0.5"/>
+    <path d="M 144 222 C 108 218, 60 220, 18 228" fill="none" stroke="#F4B942" stroke-width="0.9" opacity="0.4"/>
+    <path d="M 140 235 C 108 238, 68 248, 42 260" fill="none" stroke="#F4B942" stroke-width="0.9" opacity="0.35"/>
+
+    <!-- Wings right -->
+    <path d="M 352 210 C 395 172, 462 162, 488 194 C 462 200, 444 213, 418 217 C 444 228, 472 233, 490 252 C 456 246, 420 240, 388 236 C 410 252, 434 266, 444 288 C 412 268, 372 250, 342 240 Z"
+          fill="url(#wingGrad)" opacity="0.9"/>
+    <path d="M 352 210 C 388 196, 432 187, 478 192" fill="none" stroke="#F4B942" stroke-width="1.1" opacity="0.5"/>
+    <path d="M 356 222 C 392 218, 440 220, 482 228" fill="none" stroke="#F4B942" stroke-width="0.9" opacity="0.4"/>
+    <path d="M 360 235 C 392 238, 432 248, 458 260" fill="none" stroke="#F4B942" stroke-width="0.9" opacity="0.35"/>
+
+    <!-- Shield -->
+    <path d="M 250 122 L 332 152 L 332 238 C 332 282, 250 322, 250 322 C 250 322, 168 282, 168 238 L 168 152 Z"
+          fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="3"/>
+    <path d="M 250 134 L 322 160 L 322 234 C 322 272, 250 308, 250 308 C 250 308, 178 272, 178 234 L 178 160 Z"
+          fill="none" stroke="#F4B942" stroke-width="0.8" opacity="0.35"/>
+
+    <!-- 1550 inside shield -->
+    <text x="250" y="208" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#F4B942" letter-spacing="2">1550</text>
+    <text x="250" y="228" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#8BBDD9" letter-spacing="3">PERFECT SCORE</text>
+
+    <!-- Shield divider -->
+    <line x1="195" y1="236" x2="305" y2="236" stroke="#F4B942" stroke-width="0.7" opacity="0.5"/>
+
+    <!-- Laurel & stars inside shield -->
+    <path d="M 210 258 C 204 249, 196 252, 198 261 C 200 268, 208 266, 210 258 Z" fill="#F4B942" opacity="0.6"/>
+    <path d="M 218 263 C 213 253, 206 254, 207 263 C 208 270, 217 270, 218 263 Z" fill="#F4B942" opacity="0.5"/>
+    <path d="M 290 258 C 296 249, 304 252, 302 261 C 300 268, 292 266, 290 258 Z" fill="#F4B942" opacity="0.6"/>
+    <path d="M 282 263 C 287 253, 294 254, 293 263 C 292 270, 283 270, 282 263 Z" fill="#F4B942" opacity="0.5"/>
+    <text x="250" y="275" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#F4B942" opacity="0.8">✦ ✦ ✦</text>
+
+    <!-- Light dots -->
+    <circle cx="112" cy="148" r="2.5" fill="#FFD76B" opacity="0.6"/>
+    <circle cx="90"  cy="182" r="1.8" fill="#FFD76B" opacity="0.4"/>
+    <circle cx="388" cy="148" r="2.5" fill="#FFD76B" opacity="0.6"/>
+    <circle cx="410" cy="182" r="1.8" fill="#FFD76B" opacity="0.4"/>
+    <circle cx="250" cy="110" r="2"   fill="#FFF8E7" opacity="0.8"/>
+
+    <!-- Stars -->
+    <polygon points="62,112 64.5,120 73,120 66,125 68.5,133 62,128 55.5,133 58,125 51,120 59.5,120" fill="#F4B942" opacity="0.55"/>
+    <polygon points="438,112 440.5,120 449,120 442,125 444.5,133 438,128 431.5,133 434,125 427,120 435.5,120" fill="#F4B942" opacity="0.55"/>
+
+    <!-- SATGODS wordmark -->
+    <text x="250" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#FFFFFF" letter-spacing="4">SAT<tspan fill="#F4B942">GODS</tspan></text>
+
+    <!-- Tagline -->
+    <text x="250" y="396" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#8BBDD9" letter-spacing="4">DIVINE SAT PREPARATION</text>
+
+    <!-- Bottom ornament -->
+    <line x1="130" y1="412" x2="220" y2="412" stroke="#F4B942" stroke-width="0.7" opacity="0.5"/>
+    <circle cx="250" cy="412" r="3.5" fill="#F4B942" opacity="0.7"/>
+    <line x1="280" y1="412" x2="370" y2="412" stroke="#F4B942" stroke-width="0.7" opacity="0.5"/>
+
+    <!-- University text -->
+    <text x="250" y="438" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#64748B" letter-spacing="2">ALA-TOO INTERNATIONAL UNIVERSITY · 2026</text>
+
+  </g>
+</svg>
