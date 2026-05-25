@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-import cors from 'cors';   
+import cors from 'cors';
 import questionsRouter from './routes/questions.js';
 import lmsRouter from './routes/lms.js';
 import authRouter from './routes/auth.js';
@@ -8,7 +8,14 @@ import authRouter from './routes/auth.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+const allowedOrigins = process.env.CLIENT_URL
+  ? [process.env.CLIENT_URL]
+  : ['http://localhost:5173', 'http://localhost:4173'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use('/api/questions', questionsRouter);
