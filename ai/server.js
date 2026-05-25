@@ -1,11 +1,10 @@
 const express = require("express");
-const { getGroqChatCompletion } = require("./ai.js"); 
+const { getGroqChatCompletion } = require("./ai.js");
 const cors = require("cors");
 const app = express();
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
-// Маршрут для чата
 app.post("/api/chat", async (req, res) => {
   try {
     const { question_text, option_a, option_b, option_c, option_d, answer, type, user_message, history } = req.body;
@@ -23,7 +22,7 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-const PORT = 3005;
+const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
