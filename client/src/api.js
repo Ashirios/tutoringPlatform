@@ -1,18 +1,5 @@
-// export const API_URL = 'http://localhost:3000';
-
-// export const authFetch = (url, options = {}) => {
-//   const token = localStorage.getItem('jwt');
-//   return fetch(url, {
-//     ...options,
-//     headers: {
-//       'Content-Type': 'application/json',
-//       ...(token ? { Authorization: `Bearer ${token}` } : {}),
-//       ...options.headers,
-//     },
-//   });
-// };
-
-export const API_URL = "http://localhost:3000";
+export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+export const AI_URL = import.meta.env.VITE_AI_URL || "http://localhost:3005";
 
 export const authFetch = (url, options = {}) => {
   const token = localStorage.getItem("jwt");
