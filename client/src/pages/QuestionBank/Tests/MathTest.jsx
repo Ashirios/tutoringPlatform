@@ -3,7 +3,7 @@ import { Navigation } from "../../../components/Navigation/Navigation";
 import "./Tests.css";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { API_URL, authFetch } from "../../../api";
+import { API_URL, AI_URL, authFetch } from "../../../api";
 import { jwtDecode } from "jwt-decode";
 
 export const MathTest = () => {
@@ -26,7 +26,7 @@ export const MathTest = () => {
     setAiLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:3005/api/chat`, {
+      const res = await fetch(`${AI_URL}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -192,7 +192,7 @@ export const MathTest = () => {
     try {
       const res = await authFetch(`${API_URL}/api/questions`, {
         method: "POST",
-        body: JSON.stringify({ ...newQuestion, type: "reading" }),
+        body: JSON.stringify({ ...newQuestion, type: "math" }),
       });
 
       if (!res.ok) {
@@ -486,3 +486,4 @@ export const MathTest = () => {
     </>
   );
 };
+
