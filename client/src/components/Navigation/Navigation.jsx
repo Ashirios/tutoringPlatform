@@ -2,44 +2,41 @@ import { Link, useNavigate } from "react-router";
 import styles from "./Navigation.module.css";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
-import { jwtDecode } from "jwt-decode"; 
+import { jwtDecode } from "jwt-decode";
 
 export const Navigation = () => {
   const { t, i18n } = useTranslation();
   const nav = useNavigate();
-  
+
   const [userEmail, setUserEmail] = useState(null);
 
-  // Оставляем ОДНУ функцию здесь, чтобы её можно было использовать везде
-  const checkAuth = () => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
-      try {
-        const decoded = jwtDecode(token);
-        setUserEmail(decoded.email || null);
-      } catch (error) {
-        console.error("Invalid token", error);
-        localStorage.removeItem("jwt");
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem("jwt");
+      if (token) {
+        try {
+          const decoded = jwtDecode(token);
+          setUserEmail(decoded.email || null);
+        } catch (error) {
+          console.error("Invalid token", error);
+          localStorage.removeItem("jwt");
+          setUserEmail(null);
+        }
+      } else {
         setUserEmail(null);
       }
-    } else {
-      setUserEmail(null);
-    }
-  };
+    };
 
-  // В useEffect просто вызываем её и вешаем слушатель событий
-  useEffect(() => {
     checkAuth();
 
     window.addEventListener("storage", checkAuth);
     return () => window.removeEventListener("storage", checkAuth);
-  }, []); 
-
+  }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("jwt"); 
+    localStorage.removeItem("jwt");
     setUserEmail(null);
-    nav("/"); 
+    nav("/");
   };
 
   const getUserName = (email) => {
