@@ -10,6 +10,7 @@ export const Navigation = () => {
   
   const [userEmail, setUserEmail] = useState(null);
 
+  // Оставляем ОДНУ функцию здесь, чтобы её можно было использовать везде
   const checkAuth = () => {
     const token = localStorage.getItem("jwt");
     if (token) {
@@ -26,28 +27,13 @@ export const Navigation = () => {
     }
   };
 
+  // В useEffect просто вызываем её и вешаем слушатель событий
   useEffect(() => {
-  const checkAuth = () => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
-      try {
-        const decoded = jwtDecode(token);
-        setUserEmail(decoded.email || null);
-      } catch (error) {
-        console.error("Invalid token", error);
-        localStorage.removeItem("jwt");
-        setUserEmail(null);
-      }
-    } else {
-      setUserEmail(null);
-    }
-  };
+    checkAuth();
 
-  checkAuth();
-
-  window.addEventListener("storage", checkAuth);
-  return () => window.removeEventListener("storage", checkAuth);
-}, []); 
+    window.addEventListener("storage", checkAuth);
+    return () => window.removeEventListener("storage", checkAuth);
+  }, []); 
 
 
   const handleLogout = () => {
