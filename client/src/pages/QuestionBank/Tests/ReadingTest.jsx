@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Navigation } from "../../../components/Navigation/Navigation";
-import { API_URL, authFetch } from "../../../api";
+import { API_URL, AI_URL, authFetch } from "../../../api";
 import { jwtDecode } from "jwt-decode";
 import "./Tests.css";
 
@@ -25,7 +25,7 @@ export const ReadingTest = () => {
     setAiLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:3005/api/chat`, {
+      const res = await fetch(`${AI_URL}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -503,3 +503,4 @@ export const ReadingTest = () => {
     </>
   );
 };
+
